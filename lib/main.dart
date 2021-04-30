@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Pinterest Clone',
+      theme: ThemeData.dark(),
       home: Home(),
     );
   }
