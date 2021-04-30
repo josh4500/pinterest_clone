@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'presentation/screens/Home.dart';
-import 'presentation/screens/Search.dart';
-import 'presentation/screens/Discover.dart';
-import 'presentation/screens/Profile.dart';
+import 'presentation/screens/HomeScreen.dart';
+import 'presentation/screens/SearchScreen.dart';
+import 'presentation/screens/DiscoverScreen.dart';
+import 'presentation/screens/ProfileScreen.dart';
 import 'presentation/screens/ImageViewer.dart';
 
 void main() {
