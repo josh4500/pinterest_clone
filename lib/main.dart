@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'presentation/screens/HomeScreen.dart';
-import 'presentation/screens/SearchScreen.dart';
-import 'presentation/screens/DiscoverScreen.dart';
-import 'presentation/screens/ProfileScreen.dart';
-import 'presentation/screens/ImageViewer.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,7 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Pinterest Clone',
-      theme: ThemeData.dark(),
+      theme: ThemeData.from(colorScheme: ColorScheme.dark()),
       home: Home(),
     );
   }
