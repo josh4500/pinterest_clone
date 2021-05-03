@@ -184,7 +184,7 @@ class _HomeScreenState extends State<HomeScreen>
                   ImageCard(
                     text: 'Strange Habours Film | Black Panther',
                     icon: Icons.more_horiz,
-                    imageUri: 'images/testImage1.jpeg',
+                    imageUri: 'assets/images/testImage1.jpeg',
                   ),
                   ImageCard(
                     text: 'Strange Habours Film | Black Panther',
