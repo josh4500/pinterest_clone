@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pinterest_clone/presentation/ImageCard.dart';
+import 'package:pinterest_clone/presentation/widgets/ImageCard.dart';
 
-import '../PopFlatButton.dart';
+import '../widgets/PopFlatButton.dart';
 
 class ProfileScreen extends StatefulWidget {
   @override

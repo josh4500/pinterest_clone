@@ -30,7 +30,7 @@ class MessagesScreen extends StatelessWidget {
               margin: EdgeInsets.symmetric(horizontal: 20.0),
               padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
               decoration: BoxDecoration(
-                color: Colors.grey,
+                color: Colors.white12,
                 borderRadius: BorderRadius.all(
                   Radius.circular(25.0),
                 ),
