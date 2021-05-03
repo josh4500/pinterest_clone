@@ -16,28 +16,40 @@ class _SearchScreenState extends State<SearchScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
+            margin: EdgeInsets.only(top: 16.0, bottom: 16.0),
+            padding: EdgeInsets.all(8.0),
+            height: 40,
             decoration: BoxDecoration(
-              color: Colors.grey,
               borderRadius: BorderRadius.all(
-                Radius.circular(25.0),
+                Radius.circular(50),
               ),
+              color: Colors.white12,
             ),
-            child: TextField(
-              decoration: InputDecoration(
-                fillColor: Colors.black26,
-                prefixIcon: IconButton(
-                  color: Colors.white,
-                  icon: Icon(Icons.search),
-                  onPressed: () {},
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                  child: Icon(
+                    Icons.search,
+                    color: Color(0xEFFFFFFF),
+                  ),
                 ),
-                suffixIcon: IconButton(
-                  color: Colors.white,
-                  icon: Icon(Icons.photo_camera),
-                  onPressed: () {},
+                Expanded(
+                  child: Text(
+                    'Search your pins',
+                    style: TextStyle(
+                      color: Color(0x5FFFFFFF),
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
-                border: InputBorder.none,
-                hintText: 'Search for ideas',
-              ),
+                Icon(
+                  Icons.camera_alt,
+                  color: Color(0xEFFFFFFF),
+                ),
+              ],
             ),
           ),
           Expanded(child: SearchPinterestTile()),
