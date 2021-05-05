@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pinterest_clone/presentation/widgets/SearchBar.dart';
 
 import 'package:pinterest_clone/presentation/widgets/SearchPinterestTile.dart';
 
@@ -25,31 +26,10 @@ class _SearchScreenState extends State<SearchScreen> {
               ),
               color: Colors.white12,
             ),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                  child: Icon(
-                    Icons.search,
-                    color: Color(0xEFFFFFFF),
-                  ),
-                ),
-                Expanded(
-                  child: Text(
-                    'Search your pins',
-                    style: TextStyle(
-                      color: Color(0x5FFFFFFF),
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                Icon(
-                  Icons.camera_alt,
-                  color: Color(0xEFFFFFFF),
-                ),
-              ],
+            child: SearchBar(
+              leading: Icons.search,
+              placeholder: "Search for pins",
+              trailing: Icons.camera_alt,
             ),
           ),
           Expanded(child: SearchPinterestTile()),
