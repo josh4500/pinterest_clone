@@ -9,7 +9,6 @@ class DiscoverScreen extends StatefulWidget {
 
 class _DiscoverScreenState extends State<DiscoverScreen>
     with SingleTickerProviderStateMixin {
-  bool _isVisible = false;
   double _opacity = 1.0;
   TabController _tabController;
   List<Tab> _tabs = [
@@ -77,7 +76,7 @@ class _DiscoverScreenState extends State<DiscoverScreen>
               Opacity(
                 opacity: _opacity,
                 child: Icon(
-                  Icons.attachment,
+                  Icons.tune_outlined,
                 ),
               )
             ],

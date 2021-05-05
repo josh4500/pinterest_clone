@@ -19,7 +19,6 @@ class _UpdatesScreenState extends State<UpdatesScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Size _size = MediaQuery.of(context).size;
     return Container(
       padding: EdgeInsets.symmetric(
         horizontal: 12.0,

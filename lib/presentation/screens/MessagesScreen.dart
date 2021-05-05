@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:pinterest_clone/presentation/widgets/CustomListTile.dart';
+import 'package:pinterest_clone/presentation/widgets/SearchBar.dart';
 
 class MessagesScreen extends StatelessWidget {
-  List<int> _list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+  final List<int> _list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
   @override
   Widget build(BuildContext context) {
-    Size _size = MediaQuery.of(context).size;
     return Container(
       padding: EdgeInsets.only(
         top: 70.0,
@@ -14,11 +14,15 @@ class MessagesScreen extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Text(
-            'Share ideas with \n     your friends',
-            style: TextStyle(
-              fontSize: 24.0,
-              fontWeight: FontWeight.bold,
+          Container(
+            width: 180,
+            child: Text(
+              'Share ideas with your friends',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 24.0,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
           SizedBox(
@@ -35,16 +39,9 @@ class MessagesScreen extends StatelessWidget {
                   Radius.circular(25.0),
                 ),
               ),
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.search,
-                  ),
-                  Text(
-                    'Search by name or email',
-                  )
-                ],
-              ),
+              child: SearchBar(
+                  leading: Icons.search,
+                  placeholder: 'Search by name or email'),
             ),
           ),
           SizedBox(
@@ -55,7 +52,6 @@ class MessagesScreen extends StatelessWidget {
               physics: BouncingScrollPhysics(),
               itemCount: _list.length,
               itemBuilder: (context, index) {
-                print('${_list.length} omo');
                 if (index == _list.length - 1) {
                   return CustomListTile(
                     icon: Icons.group,
