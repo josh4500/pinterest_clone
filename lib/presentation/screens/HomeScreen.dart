@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pinterest_clone/presentation/screens/DiscoverScreen.dart';
 import 'package:pinterest_clone/presentation/screens/ProfileScreen.dart';
 import 'package:pinterest_clone/presentation/screens/SearchScreen.dart';
-import 'package:pinterest_clone/presentation/ImageCard.dart';
+import 'package:pinterest_clone/presentation/widgets/ImageCard.dart';
 
 class Home extends StatefulWidget {
   @override
