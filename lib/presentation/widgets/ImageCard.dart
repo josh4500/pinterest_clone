@@ -21,8 +21,7 @@ class ImageCard extends StatelessWidget {
                   padding: EdgeInsets.all(10.0),
                   child: Row(
                     children: [
-                      SizedBox(
-                          child: IconButton(
+                      IconButton(
                         padding: EdgeInsets.all(0.0),
                         icon: IconButton(
                           onPressed: () {
@@ -35,7 +34,7 @@ class ImageCard extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {},
-                      )),
+                      ),
                       Text(
                         'Options',
                         style: TextStyle(
@@ -64,7 +63,7 @@ class ImageCard extends StatelessWidget {
                   height: 1.0,
                 ),
                 Padding(
-                  padding: EdgeInsets.fromLTRB(15.0, 25.0, 15.0, 25.0),
+                  padding: EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 15.0),
                   child: Text(
                     'This pin is inspired by your recent activity',
                     style: TextStyle(
