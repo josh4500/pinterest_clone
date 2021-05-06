@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pinterest_clone/presentation/screens/MessagesScreen.dart';
 import 'package:pinterest_clone/presentation/screens/UpdatesScreen.dart';
+import 'package:pinterest_clone/presentation/widgets/modalBottomSheet.dart';
 
 class DiscoverScreen extends StatefulWidget {
   @override
@@ -74,11 +75,13 @@ class _DiscoverScreenState extends State<DiscoverScreen>
                 width: 20.0,
               ),
               Opacity(
-                opacity: _opacity,
-                child: Icon(
-                  Icons.tune_outlined,
-                ),
-              )
+                  opacity: _opacity,
+                  child: IconButton(
+                    icon: Icon(Icons.tune),
+                    onPressed: () {
+                      showButtomSheet(context);
+                    },
+                  ))
             ],
           ),
           Expanded(
@@ -93,5 +96,16 @@ class _DiscoverScreenState extends State<DiscoverScreen>
         ],
       ),
     );
+  }
+
+  showButtomSheet(BuildContext context) {
+    Size _size = MediaQuery.of(context).size;
+    showModalBottomSheet(
+        enableDrag: false,
+        backgroundColor: Colors.black,
+        context: context,
+        builder: (context) {
+          return ModalButtomSheet();
+        });
   }
 }
