@@ -14,8 +14,10 @@ class MessagesScreen extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Container(
-            width: 180,
+          ConstrainedBox(
+            constraints: BoxConstraints(
+              maxWidth: 180,
+            ),
             child: Text(
               'Share ideas with your friends',
               textAlign: TextAlign.center,
