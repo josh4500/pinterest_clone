@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:pinterest_clone/presentation/widgets/ImageCard.dart';
 import 'package:pinterest_clone/presentation/widgets/SearchBar.dart';
+import 'package:pinterest_clone/presentation/widgets/ThreeImageCollage.Dart';
+
 import '../widgets/PopFlatButton.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -78,25 +81,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: RotatedBox(
-          quarterTurns: 1,
-          child: IconButton(
-            icon: Icon(Icons.chevron_left),
-            onPressed: () {},
+    return CustomScrollView(
+      slivers: [
+        SliverAppBar(
+          leading: RotatedBox(
+            quarterTurns: 1,
+            child: IconButton(
+              icon: Icon(Icons.chevron_left),
+              onPressed: () {},
+            ),
           ),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.settings),
+              onPressed: () {},
+            ),
+          ],
         ),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.settings),
-            onPressed: () {},
-          ),
-        ],
-      ),
-      body: ListView(
-        children: <Widget>[
-          Container(
+        SliverToBoxAdapter(
+          child: Container(
             child: Column(
               children: <Widget>[
                 SizedBox(
@@ -139,48 +142,47 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ],
             ),
           ),
-          Row(
-            children: [
-              Expanded(
-                child: Container(
-                  margin: EdgeInsets.all(16.0),
-                  padding: EdgeInsets.all(8.0),
-                  height: 40,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(50),
-                    ),
-                    color: Colors.white12,
-                  ),
-                  child: SearchBar(
-                    leading: Icons.search,
-                    placeholder: 'Search your pins',
-                  ),
-                ),
+        ),
+        SliverAppBar(
+          title: Container(
+            height: 40,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(
+                Radius.circular(50),
               ),
-              IconButton(
+              color: Colors.white12,
+            ),
+            child: SearchBar(
+              leading: Icons.search,
+              placeholder: 'Search Your pins',
+              fontSize: 14,
+            ),
+          ),
+          actions: [
+            Flexible(
+              child: IconButton(
                   icon: Icon(Icons.tune_outlined),
                   onPressed: () {
                     _tuneModalBottomSheetMenu(context);
                   }),
-              IconButton(icon: Icon(Icons.add), onPressed: () {})
-            ],
-          ),
-          // Expanded(
-          //   child: Container(
-          //     child: GridView.count(
-          //       crossAxisCount: 2,
-          //       children: [
-          //         ImageCard(
-          //             icon: Icons.ac_unit,
-          //             text: 'creativi',
-          //             imageUri: 'assets/images/testImage1.jpeg')
-          //       ],
-          //     ),
-          //   ),
-          // ),
-        ],
-      ),
+            ),
+            Flexible(
+                child: IconButton(icon: Icon(Icons.add), onPressed: () {})),
+          ],
+        ),
+        SliverGrid(
+          gridDelegate:
+              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+          delegate:
+              SliverChildBuilderDelegate((BuildContext context, int index) {
+            return ThreeImageCollage(title: "Hello", imageUri: [
+              'assets/images/testImage1.jpeg',
+              'assets/images/testImage1.jpeg',
+              'assets/images/testImage1.jpeg',
+            ]);
+          }, childCount: 7),
+        )
+      ],
     );
   }
 }

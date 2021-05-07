@@ -12,13 +12,13 @@ class ImageCard extends StatelessWidget {
     showModalBottomSheet(
         context: context,
         builder: (builder) {
-          return new Container(
+          return Container(
             height: MediaQuery.of(context).size.height * (1.8 / 5),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.all(10.0),
+                  padding: EdgeInsets.all(5.0),
                   child: Row(
                     children: [
                       IconButton(
@@ -72,7 +72,6 @@ class ImageCard extends StatelessWidget {
                       fontWeight: FontWeight.w400,
                       fontSize: 16,
                     ),
-                    textAlign: TextAlign.center,
                   ),
                 )
               ],
