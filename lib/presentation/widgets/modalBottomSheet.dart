@@ -8,10 +8,10 @@ class ModalButtomSheet extends StatefulWidget {
 }
 
 class _ModalButtomSheetState extends State<ModalButtomSheet> {
-  Filter SelectedFilter = Filter.All;
+  Filter selectedFilter = Filter.All;
   void selectFilter(Filter type) {
     setState(() {
-      SelectedFilter = type;
+      selectedFilter = type;
     });
   }
 
@@ -50,7 +50,7 @@ class _ModalButtomSheetState extends State<ModalButtomSheet> {
                     style:
                         TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
                   ),
-                  SelectedFilter == Filter.All
+                  selectedFilter == Filter.All
                       ? Icon(
                           Icons.done,
                         )
@@ -74,7 +74,7 @@ class _ModalButtomSheetState extends State<ModalButtomSheet> {
                     style:
                         TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
                   ),
-                  SelectedFilter == Filter.Comments
+                  selectedFilter == Filter.Comments
                       ? Icon(
                           Icons.done,
                         )
@@ -98,7 +98,7 @@ class _ModalButtomSheetState extends State<ModalButtomSheet> {
                     style:
                         TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
                   ),
-                  SelectedFilter == Filter.Photos
+                  selectedFilter == Filter.Photos
                       ? Icon(
                           Icons.done,
                         )
