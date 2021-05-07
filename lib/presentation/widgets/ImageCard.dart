@@ -12,17 +12,16 @@ class ImageCard extends StatelessWidget {
     showModalBottomSheet(
         context: context,
         builder: (builder) {
-          return new Container(
+          return Container(
             height: MediaQuery.of(context).size.height * (1.8 / 5),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.all(10.0),
+                  padding: EdgeInsets.all(5.0),
                   child: Row(
                     children: [
-                      SizedBox(
-                          child: IconButton(
+                      IconButton(
                         padding: EdgeInsets.all(0.0),
                         icon: IconButton(
                           onPressed: () {
@@ -35,7 +34,7 @@ class ImageCard extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {},
-                      )),
+                      ),
                       Text(
                         'Options',
                         style: TextStyle(
@@ -63,17 +62,19 @@ class ImageCard extends StatelessWidget {
                 Divider(
                   height: 1.0,
                 ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(15.0, 25.0, 15.0, 25.0),
-                  child: Text(
-                    'This pin is inspired by your recent activity',
-                    style: TextStyle(
-                      backgroundColor: Colors.transparent,
-                      color: Color(0xF2FFFFFF),
-                      fontWeight: FontWeight.w400,
-                      fontSize: 16,
+                Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.fromLTRB(15.0, 25.0, 15.0, 25.0),
+                    child: Text(
+                      'This pin is inspired by your recent activity',
+                      style: TextStyle(
+                        backgroundColor: Colors.transparent,
+                        color: Color(0xF2FFFFFF),
+                        fontWeight: FontWeight.w400,
+                        fontSize: 16,
+                      ),
+                      textAlign: TextAlign.center,
                     ),
-                    textAlign: TextAlign.center,
                   ),
                 )
               ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pinterest_clone/presentation/widgets/SearchBar.dart';
+import 'package:pinterest_clone/presentation/widgets/ImageCard.dart';
+
 import '../widgets/PopFlatButton.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -152,9 +153,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                     color: Colors.white12,
                   ),
-                  child: SearchBar(
-                    leading: Icons.search,
-                    placeholder: 'Search your pins',
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                        child: Icon(
+                          Icons.search,
+                          color: Color(0x5FFFFFFF),
+                        ),
+                      ),
+                      Text(
+                        'Search your pins',
+                        style: TextStyle(
+                          color: Color(0x5FFFFFFF),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),

@@ -18,9 +18,16 @@ class PopFlatButton extends StatelessWidget {
       return Colors.transparent;
     }
 
+    EdgeInsetsGeometry getPadding(Set<MaterialState> states) {
+      return EdgeInsets.all(0.0);
+    }
+
     return TextButton(
+        autofocus: false,
+        clipBehavior: Clip.none,
         onPressed: () {},
         style: ButtonStyle(
+          padding: MaterialStateProperty.resolveWith(getPadding),
           overlayColor: MaterialStateProperty.resolveWith(getColor),
         ),
         child: Text(
