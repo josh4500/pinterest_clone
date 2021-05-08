@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:pinterest_clone/presentation/widgets/ImageCard.dart';
 import 'package:pinterest_clone/presentation/widgets/SearchBar.dart';
@@ -11,6 +13,8 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  double _animatedProfileHeightValue = 0.0;
+  bool _expanded = false;
   void _tuneModalBottomSheetMenu(BuildContext context) {
     showModalBottomSheet(
         context: context,
@@ -84,66 +88,114 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return CustomScrollView(
       slivers: [
         SliverAppBar(
-          leading: RotatedBox(
-            quarterTurns: 1,
-            child: IconButton(
-              icon: Icon(Icons.chevron_left),
-              onPressed: () {},
-            ),
+          pinned: !_expanded,
+          backgroundColor: Theme.of(context).backgroundColor,
+          elevation: 0,
+          title: Row(
+            children: [
+              RotatedBox(
+                quarterTurns: 1,
+                child: _expanded
+                    ? IconButton(
+                        icon: Icon(Icons.chevron_left),
+                        onPressed: () {
+                          setState(() {
+                            if (_expanded) {
+                              _expanded = false;
+                              _animatedProfileHeightValue = 0.0;
+                            } else {
+                              _expanded = true;
+                              _animatedProfileHeightValue =
+                                  MediaQuery.of(context).size.height / 3;
+                            }
+                          });
+                        },
+                      )
+                    : GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            _expanded = true;
+                            _animatedProfileHeightValue =
+                                MediaQuery.of(context).size.height / 3;
+                          });
+                        },
+                        child: CircleAvatar(
+                          backgroundImage:
+                              AssetImage('assets/images/testImage1.jpeg'),
+                          radius: 10.0,
+                        ),
+                      ),
+              ),
+              Expanded(
+                child: _expanded
+                    ? Text('')
+                    : Text(
+                        'It\'s really josh',
+                        textAlign: TextAlign.center,
+                      ),
+              ),
+              IconButton(
+                icon: Icon(Icons.settings),
+                onPressed: () {},
+              )
+            ],
           ),
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(Icons.settings),
-              onPressed: () {},
-            ),
-          ],
         ),
         SliverToBoxAdapter(
-          child: Container(
-            child: Column(
-              children: <Widget>[
-                SizedBox(
-                  height: 40,
-                ),
-                CircleAvatar(
-                  backgroundImage: AssetImage('assets/images/testImage1.jpeg'),
-                  radius: 55.0,
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Text(
-                  'It\'s really josh',
-                  style: TextStyle(
-                    fontSize: 35,
-                    fontWeight: FontWeight.w500,
+          child: AnimatedContainer(
+            duration: Duration(microseconds: 1000),
+            height: _animatedProfileHeightValue,
+            child: Container(
+              child: Column(
+                children: <Widget>[
+                  SizedBox(
+                    height: 40,
                   ),
-                ),
-                SizedBox(
-                  height: 8,
-                ),
-                Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                  CircleAvatar(
+                    backgroundImage:
+                        AssetImage('assets/images/testImage1.jpeg'),
+                    radius: 55.0,
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
                   Text(
-                    '1 follower',
+                    'It\'s really josh',
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 35,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                   SizedBox(
-                    width: 8.0,
+                    height: 8,
                   ),
-                  Text(
-                    '0 following',
-                    style: TextStyle(
-                      fontSize: 16,
+                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                    Text(
+                      '1 follower',
+                      style: TextStyle(
+                        fontSize: 16,
+                      ),
                     ),
-                  ),
-                ])
-              ],
+                    SizedBox(
+                      width: 8.0,
+                    ),
+                    Text(
+                      '0 following',
+                      style: TextStyle(
+                        fontSize: 16,
+                      ),
+                    ),
+                  ])
+                ],
+              ),
             ),
           ),
         ),
         SliverAppBar(
+          floating: true,
+          pinned: true,
+          primary: true,
+          elevation: 0,
           title: Container(
             height: 40,
             decoration: BoxDecoration(
@@ -170,17 +222,26 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 child: IconButton(icon: Icon(Icons.add), onPressed: () {})),
           ],
         ),
-        SliverGrid(
-          gridDelegate:
-              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-          delegate:
-              SliverChildBuilderDelegate((BuildContext context, int index) {
-            return ThreeImageCollage(title: "Hello", imageUri: [
-              'assets/images/testImage1.jpeg',
-              'assets/images/testImage1.jpeg',
-              'assets/images/testImage1.jpeg',
-            ]);
-          }, childCount: 7),
+        SliverPadding(
+          padding: EdgeInsets.all(10.0),
+          sliver: SliverGrid(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisSpacing: 5,
+              crossAxisSpacing: 8,
+            ),
+            delegate:
+                SliverChildBuilderDelegate((BuildContext context, int index) {
+              return ThreeImageCollage(
+                title: "Copy",
+                imageUri: [
+                  'assets/images/testImage1.jpeg',
+                  null,
+                  null,
+                ],
+              );
+            }, childCount: 7),
+          ),
         )
       ],
     );
