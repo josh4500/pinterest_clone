@@ -15,7 +15,7 @@ class ImageCard extends StatelessWidget {
           return Container(
             height: MediaQuery.of(context).size.height * (1.8 / 5),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 Padding(
                   padding: EdgeInsets.all(5.0),

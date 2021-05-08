@@ -13,70 +13,71 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   void _tuneModalBottomSheetMenu(BuildContext context) {
     showModalBottomSheet(
-        context: context,
-        builder: (builder) {
-          return new Container(
-            height: MediaQuery.of(context).size.height * 2,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.all(10.0),
-                  child: Row(
-                    children: [
-                      SizedBox(
-                          child: IconButton(
-                        padding: EdgeInsets.all(0.0),
-                        icon: IconButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          icon: Icon(
-                            Icons.close_rounded,
-                            size: 35.0,
-                            color: Color(0x82FFFFFF),
-                          ),
-                        ),
-                        onPressed: () {},
-                      )),
-                      Text(
-                        'Options',
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Color(0xF2FFFFFF),
+      context: context,
+      builder: (builder) {
+        return new Container(
+          height: MediaQuery.of(context).size.height * 2,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Row(
+                  children: [
+                    SizedBox(
+                        child: IconButton(
+                      padding: EdgeInsets.all(0.0),
+                      icon: IconButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        icon: Icon(
+                          Icons.close_rounded,
+                          size: 35.0,
+                          color: Color(0x82FFFFFF),
                         ),
                       ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(15.0, 5.0, 15.0, 0.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      PopFlatButton(text: 'Download Image'),
-                      PopFlatButton(text: 'Hide Pin'),
-                      PopFlatButton(text: 'Report pin'),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(15.0, 25.0, 15.0, 25.0),
-                  child: Text(
-                    'This pin is inspired by your recent activity',
-                    style: TextStyle(
-                      backgroundColor: Colors.transparent,
-                      color: Color(0xF2FFFFFF),
-                      fontWeight: FontWeight.w400,
-                      fontSize: 16,
+                      onPressed: () {},
+                    )),
+                    Text(
+                      'Options',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Color(0xF2FFFFFF),
+                      ),
                     ),
-                    textAlign: TextAlign.center,
+                  ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.fromLTRB(15.0, 5.0, 15.0, 0.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    PopFlatButton(text: 'Download Image'),
+                    PopFlatButton(text: 'Hide Pin'),
+                    PopFlatButton(text: 'Report pin'),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.fromLTRB(15.0, 25.0, 15.0, 25.0),
+                child: Text(
+                  'This pin is inspired by your recent activity',
+                  style: TextStyle(
+                    backgroundColor: Colors.transparent,
+                    color: Color(0xF2FFFFFF),
+                    fontWeight: FontWeight.w400,
+                    fontSize: 16,
                   ),
-                )
-              ],
-            ),
-          );
-        });
+                  textAlign: TextAlign.center,
+                ),
+              )
+            ],
+          ),
+        );
+      },
+    );
   }
 
   @override
@@ -106,7 +107,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   height: 40,
                 ),
                 CircleAvatar(
-                  backgroundImage: AssetImage('assets/images/testImage1.jpeg'),
+                  backgroundImage: AssetImage(
+                    'assets/images/testImage1.jpeg',
+                  ),
                   radius: 55.0,
                 ),
                 SizedBox(
@@ -122,23 +125,26 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 SizedBox(
                   height: 8,
                 ),
-                Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  Text(
-                    '1 follower',
-                    style: TextStyle(
-                      fontSize: 16,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      '1 follower',
+                      style: TextStyle(
+                        fontSize: 16,
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    width: 8.0,
-                  ),
-                  Text(
-                    '0 following',
-                    style: TextStyle(
-                      fontSize: 16,
+                    SizedBox(
+                      width: 8.0,
                     ),
-                  ),
-                ])
+                    Text(
+                      '0 following',
+                      style: TextStyle(
+                        fontSize: 16,
+                      ),
+                    ),
+                  ],
+                )
               ],
             ),
           ),

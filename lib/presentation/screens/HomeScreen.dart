@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pinterest_clone/presentation/screens/ImageViewer.dart';
 import 'package:pinterest_clone/presentation/widgets/ImageCard.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -95,10 +96,18 @@ class _HomeScreenState extends State<HomeScreen>
                   crossAxisCount: 2,
                 ),
                 itemBuilder: (BuildContext context, int index) {
-                  return ImageCard(
-                    text: _imageContents[index],
-                    icon: Icons.more_horiz,
-                    imageUri: 'assets/images/testImage1.jpeg',
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return ImageViewer();
+                      }));
+                    },
+                    child: ImageCard(
+                      text: _imageContents[index],
+                      icon: Icons.more_horiz,
+                      imageUri: 'assets/images/testImage1.jpeg',
+                    ),
                   );
                 },
               ),
