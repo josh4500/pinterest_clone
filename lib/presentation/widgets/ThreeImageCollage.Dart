@@ -10,52 +10,65 @@ class ThreeImageCollage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(5.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
+            flex: 2,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(15.0),
               child: Container(
-                child: Stack(
+                color: Colors.white12,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Positioned(
-                      top: 0,
-                      left: 0,
-                      bottom: 100,
-                      right: 80,
+                    Expanded(
+                      flex: 2,
                       child: Image.asset(
                         imageUri[0],
                         fit: BoxFit.cover,
+                        color: Colors.white24,
+                        colorBlendMode: BlendMode.overlay,
                       ),
                     ),
-                    Positioned(
-                      top: 0,
-                      left: 80,
-                      bottom: 50,
-                      right: 0,
-                      child: Image.asset(
-                        imageUri[1],
-                        fit: BoxFit.cover,
-                      ),
+                    Divider(
+                      color: Theme.of(context).backgroundColor,
+                      height: 2,
                     ),
-                    Positioned(
-                      top: 50,
-                      left: 80,
-                      bottom: 100,
-                      right: 0,
-                      child: Image.asset(
-                        imageUri[2],
-                        fit: BoxFit.cover,
+                    Expanded(
+                      flex: 1,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Expanded(
+                            child: imageUri[1] != null && imageUri[1] != ''
+                                ? Image.asset(
+                                    imageUri[1],
+                                    fit: BoxFit.cover,
+                                    color: Colors.white24,
+                                    colorBlendMode: BlendMode.overlay,
+                                  )
+                                : Container(),
+                          ),
+                          Divider(
+                            color: Theme.of(context).backgroundColor,
+                            height: 2,
+                          ),
+                          Expanded(
+                            child: imageUri[2] != null && imageUri[2] != ''
+                                ? Image.asset(
+                                    imageUri[2],
+                                    color: Colors.white24,
+                                    fit: BoxFit.cover,
+                                    colorBlendMode: BlendMode.overlay,
+                                  )
+                                : Container(),
+                          ),
+                        ],
                       ),
                     ),
                   ],
                 ),
-                // child: Image.asset(
-                //   imageUri[1],
-                //   fit: BoxFit.cover,
-                // ),
               ),
             ),
           ),
@@ -63,12 +76,41 @@ class ThreeImageCollage extends StatelessWidget {
             height: 10.0,
           ),
           Flexible(
-            child: Text(
-              title,
-              textAlign: TextAlign.left,
-              style: TextStyle(
-                fontSize: 16,
-              ),
+            flex: 1,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                Row(
+                  children: [
+                    Text(
+                      '10 Pins',
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        fontSize: 12,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      '2y',
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.white38,
+                      ),
+                    ),
+                  ],
+                )
+              ],
             ),
           ),
         ],
