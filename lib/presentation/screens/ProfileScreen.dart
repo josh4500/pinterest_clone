@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:pinterest_clone/presentation/widgets/ImageCard.dart';
 import 'package:pinterest_clone/presentation/widgets/SearchBar.dart';
 import 'package:pinterest_clone/presentation/widgets/ThreeImageCollage.Dart';
+import 'package:pinterest_clone/presentation/screens/SettingsScreen.dart';
 
 import '../widgets/PopFlatButton.dart';
 
@@ -136,7 +137,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
               IconButton(
                 icon: Icon(Icons.settings),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return SettingsScreen();
+                  }));
+                },
               )
             ],
           ),
