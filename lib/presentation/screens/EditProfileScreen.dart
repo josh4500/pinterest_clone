@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
 class EditProfileScreen extends StatelessWidget {
-  TextEditingController firstNameCtr = TextEditingController(text: 'Obito');
-  TextEditingController lastNameCtr = TextEditingController(text: 'Uchiha');
-  TextEditingController userNameCtr = TextEditingController(text: 'Madara');
+  final TextEditingController firstNameCtr =
+      TextEditingController(text: 'Obito');
+  final TextEditingController lastNameCtr =
+      TextEditingController(text: 'Uchiha');
+  final TextEditingController userNameCtr =
+      TextEditingController(text: 'Madara');
 
   @override
   Widget build(BuildContext context) {
