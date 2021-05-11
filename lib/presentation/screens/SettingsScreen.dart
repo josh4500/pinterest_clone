@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pinterest_clone/presentation/screens/EditProfileScreen.dart';
 import 'package:pinterest_clone/presentation/widgets/UnSplashListTile.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -45,7 +46,12 @@ class SettingsScreen extends StatelessWidget {
                 UnSplashListTile(
                   text: 'Edit profile',
                   icon: Icons.chevron_right,
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) {
+                      return EditProfileScreen();
+                    }));
+                  },
                 ),
                 UnSplashListTile(
                   text: 'Account settings',
