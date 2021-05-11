@@ -99,7 +99,6 @@ class _DiscoverScreenState extends State<DiscoverScreen>
   }
 
   showButtomSheet(BuildContext context) {
-    Size _size = MediaQuery.of(context).size;
     showModalBottomSheet(
         enableDrag: false,
         backgroundColor: Colors.black,
