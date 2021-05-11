@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-import 'package:pinterest_clone/presentation/widgets/ImageCard.dart';
-=======
 import 'package:pinterest_clone/presentation/widgets/SearchBar.dart';
 import 'package:pinterest_clone/presentation/widgets/ThreeImageCollage.Dart';
 import 'package:pinterest_clone/presentation/screens/SettingsScreen.dart';
->>>>>>> b5ca49522bdba4845b7cdcbaf6cfa84fd1fedd3d
 
 import '../widgets/PopFlatButton.dart';
 
@@ -197,40 +193,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ),
           ),
-<<<<<<< HEAD
-          Row(
-            children: [
-              Expanded(
-                child: Container(
-                  margin: EdgeInsets.all(16.0),
-                  padding: EdgeInsets.all(8.0),
-                  height: 40,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(50),
-                    ),
-                    color: Colors.white12,
-                  ),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                        child: Icon(
-                          Icons.search,
-                          color: Color(0x5FFFFFFF),
-                        ),
-                      ),
-                      Text(
-                        'Search your pins',
-                        style: TextStyle(
-                          color: Color(0x5FFFFFFF),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-=======
         ),
         SliverAppBar(
           floating: true,
@@ -242,7 +204,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.all(
                 Radius.circular(50),
->>>>>>> b5ca49522bdba4845b7cdcbaf6cfa84fd1fedd3d
               ),
               color: Colors.white12,
             ),

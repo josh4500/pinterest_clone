@@ -62,20 +62,6 @@ class ImageCard extends StatelessWidget {
                 Divider(
                   height: 1.0,
                 ),
-<<<<<<< HEAD
-                Expanded(
-                  child: Padding(
-                    padding: EdgeInsets.fromLTRB(15.0, 25.0, 15.0, 25.0),
-                    child: Text(
-                      'This pin is inspired by your recent activity',
-                      style: TextStyle(
-                        backgroundColor: Colors.transparent,
-                        color: Color(0xF2FFFFFF),
-                        fontWeight: FontWeight.w400,
-                        fontSize: 16,
-                      ),
-                      textAlign: TextAlign.center,
-=======
                 Padding(
                   padding: EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 15.0),
                   child: Text(
@@ -85,7 +71,6 @@ class ImageCard extends StatelessWidget {
                       color: Color(0xF2FFFFFF),
                       fontWeight: FontWeight.w400,
                       fontSize: 16,
->>>>>>> b5ca49522bdba4845b7cdcbaf6cfa84fd1fedd3d
                     ),
                   ),
                 )
