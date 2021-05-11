@@ -1,7 +1,4 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
-import 'package:pinterest_clone/presentation/widgets/ImageCard.dart';
 import 'package:pinterest_clone/presentation/widgets/SearchBar.dart';
 import 'package:pinterest_clone/presentation/widgets/ThreeImageCollage.Dart';
 import 'package:pinterest_clone/presentation/screens/SettingsScreen.dart';
@@ -123,7 +120,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         child: CircleAvatar(
                           backgroundImage:
                               AssetImage('assets/images/testImage1.jpeg'),
-                          radius: 10.0,
+                          radius: 20.0,
                         ),
                       ),
               ),
@@ -241,9 +238,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
               return ThreeImageCollage(
                 title: "Copy",
                 imageUri: [
-                  'assets/images/testImage1.jpeg',
-                  null,
-                  null,
+                  'assets/images/obito.jpg',
+                  'assets/images/levi.jpg',
+                  'assets/images/jiraiya.png',
                 ],
               );
             }, childCount: 7),
