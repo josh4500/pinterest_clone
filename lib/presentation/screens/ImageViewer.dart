@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pinterest_clone/presentation/widgets/ImageCard.dart';
 
 class ImageViewer extends StatelessWidget {
-  List<String> _imageContents = [
+  final List<String> _imageContents = [
     'Strange Habours Film | Black Panther 1',
     'Strange Habours Film | Black Panther 2',
     'Strange Habours Film | Black Panther 3',
