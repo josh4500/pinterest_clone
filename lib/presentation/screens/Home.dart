@@ -68,13 +68,26 @@ class _HomeState extends State<Home> {
     return SafeArea(
       child: Scaffold(
         extendBody: true,
-        body: IndexedStack(
-          index: _selectedIndex,
-          children: [
-            HomeScreen(),
-            SearchScreen(),
-            DiscoverScreen(),
-            ProfileScreen()
+        body: CustomScrollView(
+          controller: _scrollController,
+          slivers: [
+            SliverToBoxAdapter(
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxHeight: MediaQuery.of(context).size.height,
+                  maxWidth: MediaQuery.of(context).size.width,
+                ),
+                child: IndexedStack(
+                  index: _selectedIndex,
+                  children: [
+                    HomeScreen(),
+                    SearchScreen(),
+                    DiscoverScreen(),
+                    ProfileScreen()
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
         bottomNavigationBar: AnimatedOpacity(
