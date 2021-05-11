@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:pinterest_clone/presentation/widgets/ImageCard.dart';
+=======
+import 'package:pinterest_clone/presentation/widgets/SearchBar.dart';
+import 'package:pinterest_clone/presentation/widgets/ThreeImageCollage.Dart';
+import 'package:pinterest_clone/presentation/screens/SettingsScreen.dart';
+>>>>>>> b5ca49522bdba4845b7cdcbaf6cfa84fd1fedd3d
 
 import '../widgets/PopFlatButton.dart';
 
@@ -9,6 +15,8 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  double _animatedProfileHeightValue = 0.0;
+  bool _expanded = false;
   void _tuneModalBottomSheetMenu(BuildContext context) {
     showModalBottomSheet(
         context: context,
@@ -79,67 +87,117 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: RotatedBox(
-          quarterTurns: 1,
-          child: IconButton(
-            icon: Icon(Icons.chevron_left),
-            onPressed: () {},
+    return CustomScrollView(
+      slivers: [
+        SliverAppBar(
+          pinned: !_expanded,
+          backgroundColor: Theme.of(context).backgroundColor,
+          elevation: 0,
+          title: Row(
+            children: [
+              RotatedBox(
+                quarterTurns: 1,
+                child: _expanded
+                    ? IconButton(
+                        icon: Icon(Icons.chevron_left),
+                        onPressed: () {
+                          setState(() {
+                            if (_expanded) {
+                              _expanded = false;
+                              _animatedProfileHeightValue = 0.0;
+                            } else {
+                              _expanded = true;
+                              _animatedProfileHeightValue =
+                                  MediaQuery.of(context).size.height / 3;
+                            }
+                          });
+                        },
+                      )
+                    : GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            _expanded = true;
+                            _animatedProfileHeightValue =
+                                MediaQuery.of(context).size.height / 3;
+                          });
+                        },
+                        child: CircleAvatar(
+                          backgroundImage:
+                              AssetImage('assets/images/testImage1.jpeg'),
+                          radius: 20.0,
+                        ),
+                      ),
+              ),
+              Expanded(
+                child: _expanded
+                    ? Text('')
+                    : Text(
+                        'It\'s really josh',
+                        textAlign: TextAlign.center,
+                      ),
+              ),
+              IconButton(
+                icon: Icon(Icons.settings),
+                onPressed: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return SettingsScreen();
+                  }));
+                },
+              )
+            ],
           ),
         ),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.settings),
-            onPressed: () {},
-          ),
-        ],
-      ),
-      body: ListView(
-        children: <Widget>[
-          Container(
-            child: Column(
-              children: <Widget>[
-                SizedBox(
-                  height: 40,
-                ),
-                CircleAvatar(
-                  backgroundImage: AssetImage('assets/images/testImage1.jpeg'),
-                  radius: 55.0,
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Text(
-                  'It\'s really josh',
-                  style: TextStyle(
-                    fontSize: 35,
-                    fontWeight: FontWeight.w500,
+        SliverToBoxAdapter(
+          child: AnimatedContainer(
+            duration: Duration(microseconds: 1000),
+            height: _animatedProfileHeightValue,
+            child: Container(
+              child: Column(
+                children: <Widget>[
+                  SizedBox(
+                    height: 40,
                   ),
-                ),
-                SizedBox(
-                  height: 8,
-                ),
-                Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                  CircleAvatar(
+                    backgroundImage:
+                        AssetImage('assets/images/testImage1.jpeg'),
+                    radius: 55.0,
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
                   Text(
-                    '1 follower',
+                    'It\'s really josh',
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 35,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                   SizedBox(
-                    width: 8.0,
+                    height: 8,
                   ),
-                  Text(
-                    '0 following',
-                    style: TextStyle(
-                      fontSize: 16,
+                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                    Text(
+                      '1 follower',
+                      style: TextStyle(
+                        fontSize: 16,
+                      ),
                     ),
-                  ),
-                ])
-              ],
+                    SizedBox(
+                      width: 8.0,
+                    ),
+                    Text(
+                      '0 following',
+                      style: TextStyle(
+                        fontSize: 16,
+                      ),
+                    ),
+                  ])
+                ],
+              ),
             ),
           ),
+<<<<<<< HEAD
           Row(
             children: [
               Expanded(
@@ -172,30 +230,62 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ],
                   ),
                 ),
+=======
+        ),
+        SliverAppBar(
+          floating: true,
+          pinned: true,
+          primary: true,
+          elevation: 0,
+          title: Container(
+            height: 40,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(
+                Radius.circular(50),
+>>>>>>> b5ca49522bdba4845b7cdcbaf6cfa84fd1fedd3d
               ),
-              IconButton(
+              color: Colors.white12,
+            ),
+            child: SearchBar(
+              leading: Icons.search,
+              placeholder: 'Search Your pins',
+              fontSize: 14,
+            ),
+          ),
+          actions: [
+            Flexible(
+              child: IconButton(
                   icon: Icon(Icons.tune_outlined),
                   onPressed: () {
                     _tuneModalBottomSheetMenu(context);
                   }),
-              IconButton(icon: Icon(Icons.add), onPressed: () {})
-            ],
+            ),
+            Flexible(
+                child: IconButton(icon: Icon(Icons.add), onPressed: () {})),
+          ],
+        ),
+        SliverPadding(
+          padding: EdgeInsets.all(10.0),
+          sliver: SliverGrid(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisSpacing: 5,
+              crossAxisSpacing: 8,
+            ),
+            delegate:
+                SliverChildBuilderDelegate((BuildContext context, int index) {
+              return ThreeImageCollage(
+                title: "Copy",
+                imageUri: [
+                  'assets/images/obito.jpg',
+                  'assets/images/levi.jpg',
+                  'assets/images/jiraiya.png',
+                ],
+              );
+            }, childCount: 7),
           ),
-          // Expanded(
-          //   child: Container(
-          //     child: GridView.count(
-          //       crossAxisCount: 2,
-          //       children: [
-          //         ImageCard(
-          //             icon: Icons.ac_unit,
-          //             text: 'creativi',
-          //             imageUri: 'assets/images/testImage1.jpeg')
-          //       ],
-          //     ),
-          //   ),
-          // ),
-        ],
-      ),
+        )
+      ],
     );
   }
 }

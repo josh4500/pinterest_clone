@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 
 class SearchBar extends StatelessWidget {
-  SearchBar({
-    this.leading,
-    this.placeholder,
-    this.trailing,
-  });
+  SearchBar({this.leading, this.placeholder, this.trailing, this.fontSize});
 
   final IconData leading;
   final String placeholder;
   final IconData trailing;
+  final double fontSize;
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +25,7 @@ class SearchBar extends StatelessWidget {
             placeholder,
             style: TextStyle(
               color: Color(0x5FFFFFFF),
+              fontSize: fontSize,
             ),
           ),
         ),
