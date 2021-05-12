@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pinterest_clone/presentation/screens/AddAccountScreen.dart';
 import 'package:pinterest_clone/presentation/screens/EditProfileScreen.dart';
 import 'package:pinterest_clone/presentation/screens/LoginScreen.dart';
 import 'package:pinterest_clone/presentation/widgets/UnSplashListTile.dart';
@@ -105,7 +106,12 @@ class SettingsScreen extends StatelessWidget {
                 ),
                 UnSplashListTile(
                   text: 'Add account',
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return AddAccountScreen();
+                    }));
+                  },
                 ),
                 UnSplashListTile(
                   text: 'Log out',
