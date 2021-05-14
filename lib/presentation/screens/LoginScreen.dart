@@ -12,7 +12,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void addCompleteEmail(String end) {
     setState(() {
-      emailController.text += end;
+      List<String> begin = emailController.text.split("@");
+      emailController.text = begin[0] + end;
     });
   }
 
